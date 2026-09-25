@@ -2,12 +2,14 @@
 	display: inline-flex;
 	box-sizing: border-box;
 	max-width: fit-content;
-	border: 1px solid #000;
+	border: 1px solid #000000;
+	flex-wrap: wrap;
 }
 
 .item {
 	position: relative;
 	display: block;
+	min-width: 0;
 }
 
 .input {
@@ -28,8 +30,9 @@
 	width: 124px;
 	height: 35px;
 	text-align: center;
-	border-right: 1px solid #000;
+	border-right: 1px solid #000000;
 	cursor: pointer;
+	
 }
 
 /* Убираем бордер у последнего в radiogroup, чтобы не было двойного бордера */
@@ -55,3 +58,4 @@
 	flex-direction: column;
 	row-gap: 4px;
 }
+
