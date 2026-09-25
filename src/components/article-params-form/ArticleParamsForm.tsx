@@ -44,6 +44,7 @@ export const ArticleParamsForm = ({
       setIsOpen(false);
     }
   };
+  
 
   useEffect(() => {
     if (isOpen) {
