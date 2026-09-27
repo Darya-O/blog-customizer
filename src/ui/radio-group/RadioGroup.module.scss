@@ -1,9 +1,9 @@
 .group {
 	display: inline-flex;
+	flex-wrap: wrap;
 	box-sizing: border-box;
 	max-width: fit-content;
-	border: 1px solid #000000;
-	flex-wrap: wrap;
+	border: 1px solid #000;
 }
 
 .item {
@@ -30,7 +30,7 @@
 	width: 124px;
 	height: 35px;
 	text-align: center;
-	border-right: 1px solid #000000;
+	border-right: 1px solid #000;
 	cursor: pointer;
 	
 }

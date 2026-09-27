@@ -1,19 +1,20 @@
-import React, { useState, useEffect, useRef } from 'react';
-import clsx from 'clsx';
-
-import { ArrowButton } from 'src/ui/arrow-button';
-import { Button } from 'src/ui/button';
-import { Select } from 'src/ui/select';
-import { RadioGroup } from 'src/ui/radio-group';
-import { Separator } from 'src/ui/separator';
+import { clsx } from 'clsx';
+import { useState, useEffect, useRef } from 'react';
 import {
-  ArticleStateType,
   fontFamilyOptions,
   fontColors,
   backgroundColors,
   contentWidthArr,
   fontSizeOptions,
 } from 'src/constants/articleProps';
+import { ArrowButton } from 'src/ui/arrow-button';
+import { Button } from 'src/ui/button';
+import { RadioGroup } from 'src/ui/radio-group';
+import { Select } from 'src/ui/select';
+import { Separator } from 'src/ui/separator';
+
+import type React from 'react';
+import type { ArticleStateType } from 'src/constants/articleProps';
 
 import styles from './ArticleParamsForm.module.scss';
 
@@ -29,13 +30,13 @@ export const ArticleParamsForm = ({
   currentState,
   onApply,
   onReset,
-}: ArticleParamsFormProps) => {
+}: ArticleParamsFormProps): React.JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [formState, setFormState] = useState<ArticleStateType>(currentState);
   const sidebarRef = useRef<HTMLDivElement>(null);
 
-  const handleClickOutside = (event: MouseEvent) => {
+  const handleClickOutside = (event: MouseEvent): void => {
     if (
       isOpen &&
       sidebarRef.current &&
@@ -44,27 +45,26 @@ export const ArticleParamsForm = ({
       setIsOpen(false);
     }
   };
-  
 
-  useEffect(() => {
+  useEffect((): void => {
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     } else {
       document.removeEventListener('mousedown', handleClickOutside);
     }
 
-    return () => {
+    return (): void => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isOpen]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
     onApply(formState);
     setIsOpen(false);
   };
 
-  const handleReset = () => {
+  const handleReset = (): void => {
     setFormState(initialState);
     onReset();
   };
