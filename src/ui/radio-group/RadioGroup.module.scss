@@ -1,14 +1,16 @@
 .group {
-	display: inline-flex;
-	flex-wrap: wrap;
+	display: flex;
+	flex-direction: row;
 	box-sizing: border-box;
 	max-width: fit-content;
-	border: 1px solid #000;
+	border: 1px solid #000000;
+	flex-wrap: nowrap;     
+    width: 100%;
 }
 
 .item {
+	display: flex;
 	position: relative;
-	display: block;
 	min-width: 0;
 }
 
@@ -30,9 +32,8 @@
 	width: 124px;
 	height: 35px;
 	text-align: center;
-	border-right: 1px solid #000;
+	border-right: 1px solid #000000;
 	cursor: pointer;
-	
 }
 
 /* Убираем бордер у последнего в radiogroup, чтобы не было двойного бордера */
@@ -58,4 +59,3 @@
 	flex-direction: column;
 	row-gap: 4px;
 }
-
